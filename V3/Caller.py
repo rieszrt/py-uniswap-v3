@@ -53,8 +53,8 @@ class V3Factory(Caller):
     def createPool(self, token1, token2, fee):
         '''
         Creates a pool for token 1 and token 2.
-        :param token1: address of first token we're sending
-        :param token2: address of second token we're sending
+        :param token1: address
+        :param token2: address
         :return: Hash of function call.
         '''
         tx = self.contract.functions.createPair(token1, token2, fee).buildTransaction(
