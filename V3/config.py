@@ -2,7 +2,6 @@ class Ropsten():
     '''
     Config for calling contracts on the Ropsten Testnet.
     '''
-
     def __init__(self):
         self.deploy_to = 'https://ropsten.infura.io/v3/01fd207f78e64967af6443941947b977'
         self.wallet = dict(address="0xE533133C7a4Da33f7a54CBa414d5D25ac8eE4524",

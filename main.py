@@ -17,9 +17,9 @@ Listen to events using V3/Listener.py as follows:
 '''
 To call functions use V3/Caller.py. 
 '''
-#Select Ethereum network
+# Select Ethereum network
 config = Ropsten()
-#Select contract to call
-Caller= V3.Caller.NonfungiblePositionManager(config)
-#Call function
-Caller.decreaseLiquidity(tokenId=1,liquidity=1000000,amount0Min=1000000,deadline=int(time.time()))
+# Select contract to call
+Caller = V3.Caller.NonfungiblePositionManager(config)
+# Call function
+Caller.decreaseLiquidity(tokenId=1, liquidity=1000000, amount0Min=1000000, amount1Min = 1000000, deadline=int(time.time()))
