@@ -85,7 +85,7 @@ class NonfungiblePositionManager(Caller):
         :return:
         '''
         params = [tokenId, amount0Desired, amount1Desired, amount0Min, amount1Min, deadline]
-        tx = self.contract.functions.IncreaseLiquidity(params).buildTransaction(
+        tx = self.contract.functions.increaseLiquidity(params).buildTransaction(
             {'nonce': self.w3.eth.getTransactionCount(self.wallet['address'])})
         tx_hash = self.transaction(tx, self.wallet['privateKey'])
         return tx_hash
@@ -100,8 +100,8 @@ class NonfungiblePositionManager(Caller):
         :param deadline:
         :return:
         '''
-        params = [tokenId, liquidity, amount0Min, deadline]
-        tx = self.contract.functions.DecreaseLiquidity(params).buildTransaction(
+        params = (tokenId, liquidity, amount0Min, deadline)
+        tx = self.contract.functions.decreaseLiquidity(params).buildTransaction(
             {'nonce': self.w3.eth.getTransactionCount(self.wallet['address'])})
         tx_hash = self.transaction(tx, self.wallet['privateKey'])
         return tx_hash
@@ -141,7 +141,7 @@ class NonfungiblePositionManager(Caller):
         '''
         params = [token0, token1, fee, tickLower, tickUpper, amount0Desired, amount1Desired, amount0Min, amount1Min,
                   recipient, deadline]
-        tx = self.contract.functions.Mint(params).buildTransaction(
+        tx = self.contract.functions.mint(params).buildTransaction(
             {'nonce': self.w3.eth.getTransactionCount(self.wallet['address'])})
         tx_hash = self.transaction(tx, self.wallet['privateKey'])
         return tx_hash
