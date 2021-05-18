@@ -57,9 +57,9 @@ class V3Factory(Caller):
         :param token2: address
         :return: Hash of function call.
         '''
-        tx = self.contract.functions.createPair(token1, token2, fee).buildTransaction(
+        tx = self.contract.functions.createPool(token1, token2, fee).buildTransaction(
             {'nonce': self.w3.eth.getTransactionCount(self.wallet["address"])})
-        tx_hash = self.transaction(tx, self.wallet["private_key"])
+        tx_hash = self.transaction(tx, self.wallet["privateKey"])
         return tx_hash
 
 
@@ -118,7 +118,7 @@ class NonfungiblePositionManager(Caller):
         :return:
         '''
         params = dict(tokenId=tokenId, recipient=recipient, amount0Max=amount0Max, amount1Max=amount1Max)
-        tx = self.contract.functions.Collect(params).buildTransaction(
+        tx = self.contract.functions.collect(params).buildTransaction(
             {'nonce': self.w3.eth.getTransactionCount(self.wallet['address'])})
         tx_hash = self.transaction(tx, self.wallet['privateKey'])
         return tx_hash
